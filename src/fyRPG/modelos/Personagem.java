@@ -45,37 +45,36 @@ public class Personagem extends Classe implements RolagemSkills, D20Roll {
 
     @Override
     public double strengthModifier() {
-        return (int) this.strength / 4;
+        return (int) (double) strength / 4;
     }
-
     @Override
     public double dexModifier() {
-        return (int) this.dexterity / 4;
+        return (int) (double) dexterity / 4;
     }
 
     @Override
     public double conModifier() {
-        return (int) this.constitution / 4;
+        return (int) (double) constitution / 4;
     }
 
     @Override
     public double intModifier() {
-        return (int) this.intelligence / 4;
+        return (int) (double) intelligence / 4;
     }
 
     @Override
     public double wisModifier() {
-        return (int) this.wisdom / 4;
+        return (int) (double) wisdom / 4;
     }
 
     @Override
     public double chaModifier() {
-        return (int) this.charisma / 4;
+        return (int) (double) charisma / 4;
     }
 
     @Override
     public int D20Roll() {
-        return (int)Math.floor(Math.random() * (20 - 1 + 1) + 1);
+        return (int)Math.floor(Math.random() * 20);
     }
 
     //Getters and Setters
