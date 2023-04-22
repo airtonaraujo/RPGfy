@@ -14,7 +14,6 @@ public class Personagem extends Classe implements RolagemSkills, D20Roll, Atribu
     private int intelligence;
     private int wisdom;
     private int charisma;
-    private String favoriteSkill;
 
     public Personagem() {
 
@@ -47,18 +46,17 @@ public class Personagem extends Classe implements RolagemSkills, D20Roll, Atribu
     @Override
     public int Atributos() {
         int[] d6Rolados;
-        d6Rolados = new int[4];
+        d6Rolados = new int[3];
         d6Rolados[0] = (int) Math.floor(Math.random() * 6);
         d6Rolados[1] = (int) Math.floor(Math.random() * 6);
         d6Rolados[2] = (int) Math.floor(Math.random() * 6);
-        d6Rolados[3] = (int) Math.floor(Math.random() * 6);
 
         int atributoFinal = 0;
         for(int i = 0; i < d6Rolados.length; i++) {
             int d6Rolado = d6Rolados[i];
             atributoFinal += d6Rolado;
         }
-        return atributoFinal;
+        return atributoFinal + 2;
     }
 
     @Override
