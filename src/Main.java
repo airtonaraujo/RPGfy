@@ -21,31 +21,30 @@ public class Main {
                 5 - Sage (+2 intelligence)
                 """);
         int background = scanner.nextInt();
-        String characterBg = "Background selecionado: " +personagem.getBackground();
             if (background == 0) {
                 personagem.setBackground("Acólito");
                 personagem.setWisdom(2);
-                System.out.println(characterBg);
+                System.out.println("Background selecionado: " +personagem.getBackground());
             } else if (background == 1) {
                 personagem.setBackground("Folk Hero");
                 personagem.setConstitution(2);
-                System.out.println(characterBg);
+                System.out.println("Background selecionado: " +personagem.getBackground());
             } else if (background == 2) {
                 personagem.setBackground("Noble");
                 personagem.setCharisma(2);
-                System.out.println(characterBg);
+                System.out.println("Background selecionado: " +personagem.getBackground());
             } else if (background == 3) {
                 personagem.setBackground("Soldier");
                 personagem.setStrength(2);
-                System.out.println(characterBg);
+                System.out.println("Background selecionado: " +personagem.getBackground());
             } else if (background == 4) {
                 personagem.setBackground("Criminal");
                 personagem.setDexterity(2);
-                System.out.println(characterBg);
+                System.out.println("Background selecionado: " +personagem.getBackground());
             } else if (background == 5) {
                 personagem.setBackground("Sage");
                 personagem.setIntelligence(2);
-                System.out.println(characterBg);
+                System.out.println("Background selecionado: " +personagem.getBackground());
             } else {
                 while (background >= 6) {
                     System.out.println("Background inválido, insira um valor dentre as opções");
@@ -90,16 +89,13 @@ public class Main {
         personagem.setWisdom(personagem.getWisdom() + personagem.Atributos());
         personagem.setCharisma(personagem.getCharisma() + personagem.Atributos());
 
-        System.out.println("");
 
         System.out.println("Essa é a sua ficha de personagem: ");
         personagem.showCharacterSheet();
 
         System.out.println("Vamos começar uma pequena jornada agora...");
 
-        System.out.println("Let's make a wisdom roll");
-
-        System.out.println("Seu tesde wisdom foi: " + (personagem.D20Roll() + personagem.wisModifier()));
+        System.out.println("Aguarde o lançamento do restante... XD");
 
 
     }

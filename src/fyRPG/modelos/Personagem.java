@@ -56,7 +56,7 @@ public class Personagem extends Classe implements RolagemSkills, D20Roll, Atribu
             int d6Rolado = d6Rolados[i];
             atributoFinal += d6Rolado;
         }
-        return atributoFinal + 2;
+        return 2 + atributoFinal;
     }
 
     @Override
