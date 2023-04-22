@@ -13,11 +13,29 @@ public class Main {
         System.out.println("Digite o nome do seu personagem: ");
         balgrum.setCharacterName(scanner.nextLine());
 
-        System.out.println("Digite a raça do seu personagem: ");
-        balgrum.setRaca(scanner.nextLine());
-
         System.out.println("Digite o background do seu personagem: ");
         balgrum.setBackground(scanner.nextLine());
+
+        System.out.println("""
+                Decida a raça do seu personagem:
+                1- Humano
+                2- Anão
+                3- Elfo
+                4- Tiefling
+                """);
+        int race = scanner.nextInt();
+        if (race == 1) {
+            balgrum.setRace("Humano");
+        } else if (race == 2) {
+            balgrum.setRace("Anão");
+        } else if (race == 3) {
+            balgrum.setRace("Elfo");
+        } else if (race == 4) {
+            balgrum.setRace("Tiefling");
+        } else {
+            System.out.println("Raça não definida");
+            balgrum.setRace("Undefined");
+        }
 
         System.out.println("Digite a força do seu personagem: ");
         balgrum.setStrength(scanner.nextInt());
@@ -41,8 +59,9 @@ public class Main {
         balgrum.showCharacterSheet();
 
         System.out.println("Vamos começar uma pequena jornada agora...");
-        System.out.println("""
-                    
-                """);
+
+        System.out.println("Let's make a wisdom roll");
+
+        System.out.println(balgrum.D20Roll() + balgrum.wisModifier());
     }
 }

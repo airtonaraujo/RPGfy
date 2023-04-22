@@ -1,8 +1,11 @@
 package fyRPG.modelos;
 
-public class Personagem extends Classe{
+import Rolls.D20Roll;
+import Rolls.RolagemSkills;
+
+public class Personagem extends Classe implements RolagemSkills, D20Roll {
     private String characterName;
-    private String raca;
+    private String race;
     private String background;
     private int strength;
     private int dexterity;
@@ -16,9 +19,9 @@ public class Personagem extends Classe{
 
     }
 
-    public Personagem(String characterName, String raca , String background, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+    public Personagem(String characterName, String race , String background, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
         this.characterName = characterName;
-        this.raca = raca;
+        this.race = race;
         this.background = background;
         this.strength = strength;
         this.dexterity = dexterity;
@@ -30,7 +33,7 @@ public class Personagem extends Classe{
 
     public void showCharacterSheet() {
         System.out.println("Character name: " +characterName);
-        System.out.println("Race: " +raca);
+        System.out.println("Race: " +race);
         System.out.println("Background: " +background);
         System.out.println("Strength: " +strength);
         System.out.println("Dexterity: " +dexterity);
@@ -40,6 +43,42 @@ public class Personagem extends Classe{
         System.out.println("Charisma: " +charisma);
     }
 
+    @Override
+    public double strengthModifier() {
+        return (int) this.strength / 4;
+    }
+
+    @Override
+    public double dexModifier() {
+        return (int) this.dexterity / 4;
+    }
+
+    @Override
+    public double conModifier() {
+        return (int) this.constitution / 4;
+    }
+
+    @Override
+    public double intModifier() {
+        return (int) this.intelligence / 4;
+    }
+
+    @Override
+    public double wisModifier() {
+        return (int) this.wisdom / 4;
+    }
+
+    @Override
+    public double chaModifier() {
+        return (int) this.charisma / 4;
+    }
+
+    @Override
+    public int D20Roll() {
+        return (int)Math.floor(Math.random() * (20 - 1 + 1) + 1);
+    }
+
+    //Getters and Setters
     public String getCharacterName() {
         return characterName;
     }
@@ -48,12 +87,12 @@ public class Personagem extends Classe{
         this.characterName = characterName;
     }
 
-    public String getRaca() {
-        return raca;
+    public String getRace() {
+        return race;
     }
 
-    public void setRaca(String raca) {
-        this.raca = raca;
+    public void setRace(String raca) {
+        this.race = raca;
     }
 
     public String getBackground() {
