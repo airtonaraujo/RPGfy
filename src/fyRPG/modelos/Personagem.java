@@ -1,9 +1,10 @@
 package fyRPG.modelos;
 
+import Rolls.Atributos;
 import Rolls.D20Roll;
 import Rolls.RolagemSkills;
 
-public class Personagem extends Classe implements RolagemSkills, D20Roll {
+public class Personagem extends Classe implements RolagemSkills, D20Roll, Atributos {
     private String characterName;
     private String race;
     private String background;
@@ -41,6 +42,23 @@ public class Personagem extends Classe implements RolagemSkills, D20Roll {
         System.out.println("Intelligence: " +intelligence);
         System.out.println("Wisdom: " +wisdom);
         System.out.println("Charisma: " +charisma);
+    }
+
+    @Override
+    public int Atributos() {
+        int[] d6Rolados;
+        d6Rolados = new int[4];
+        d6Rolados[0] = (int) Math.floor(Math.random() * 6);
+        d6Rolados[1] = (int) Math.floor(Math.random() * 6);
+        d6Rolados[2] = (int) Math.floor(Math.random() * 6);
+        d6Rolados[3] = (int) Math.floor(Math.random() * 6);
+
+        int atributoFinal = 0;
+        for(int i = 0; i < d6Rolados.length; i++) {
+            int d6Rolado = d6Rolados[i];
+            atributoFinal += d6Rolado;
+        }
+        return atributoFinal;
     }
 
     @Override
@@ -90,8 +108,8 @@ public class Personagem extends Classe implements RolagemSkills, D20Roll {
         return race;
     }
 
-    public void setRace(String raca) {
-        this.race = raca;
+    public void setRace(String race) {
+        this.race = race;
     }
 
     public String getBackground() {
