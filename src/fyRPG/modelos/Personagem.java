@@ -1,10 +1,9 @@
 package fyRPG.modelos;
 
-import Rolls.Atributos;
-import Rolls.D20Roll;
-import Rolls.RolagemSkills;
+import fyRPG.services.AtributosService;
+import fyRPG.services.MenuService;
 
-public class Personagem extends Classe implements RolagemSkills, D20Roll, Atributos {
+public class Personagem {
     private String characterName;
     private String race;
     private String background;
@@ -16,7 +15,6 @@ public class Personagem extends Classe implements RolagemSkills, D20Roll, Atribu
     private int charisma;
 
     public Personagem() {
-
     }
 
     public Personagem(String characterName, String race , String background, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
@@ -41,56 +39,6 @@ public class Personagem extends Classe implements RolagemSkills, D20Roll, Atribu
         System.out.println("Intelligence: " +intelligence);
         System.out.println("Wisdom: " +wisdom);
         System.out.println("Charisma: " +charisma);
-    }
-
-    @Override
-    public int Atributos() {
-        int[] d6Rolados;
-        d6Rolados = new int[3];
-        d6Rolados[0] = (int) Math.floor(Math.random() * 6);
-        d6Rolados[1] = (int) Math.floor(Math.random() * 6);
-        d6Rolados[2] = (int) Math.floor(Math.random() * 6);
-
-        int atributoFinal = 0;
-        for(int i = 0; i < d6Rolados.length; i++) {
-            int d6Rolado = d6Rolados[i];
-            atributoFinal += d6Rolado;
-        }
-        return 2 + atributoFinal;
-    }
-
-    @Override
-    public double strengthModifier() {
-        return (int) (double) strength / 4;
-    }
-    @Override
-    public double dexModifier() {
-        return (int) (double) dexterity / 4;
-    }
-
-    @Override
-    public double conModifier() {
-        return (int) (double) constitution / 4;
-    }
-
-    @Override
-    public double intModifier() {
-        return (int) (double) intelligence / 4;
-    }
-
-    @Override
-    public double wisModifier() {
-        return (int) (double) wisdom / 4;
-    }
-
-    @Override
-    public double chaModifier() {
-        return (int) (double) charisma / 4;
-    }
-
-    @Override
-    public int D20Roll() {
-        return (int)Math.floor(Math.random() * 20);
     }
 
     //Getters and Setters
